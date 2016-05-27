@@ -1,7 +1,7 @@
 public class Ball {
   // world size specifications, used for wall detection
-  static int worldX = 500;
-  static int worldY = 500;
+  int worldX = 700;
+  int worldY = 700;
   
   // positioining instance vars
   int diameter;
@@ -47,9 +47,10 @@ public class Ball {
     rgbColor = hue;
   }
   
-  draw() {
+  void draw() {
     fill(rgbColor[0], rgbColor[1], rgbColor[2]); // set colors
     ellipse(xcor, ycor, diameter, diameter);
+    bounceWall();
     xcor += vx; // next cycle, move in x direction
     ycor += vy; // next cycle, move in y direction
   }
