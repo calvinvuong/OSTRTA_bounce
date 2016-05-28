@@ -23,7 +23,7 @@ public class Ball {
   // default constructor
   public Ball() {
     // set default instance vars
-    diameter = 10;
+    diameter = 20;
     xcor = 0;
     ycor = 0;
     vx = 0;
@@ -34,7 +34,7 @@ public class Ball {
     GROW = false;
     SHRINK = false;
     BOUNCE = true;
-    maxDiameter = 35;
+    maxDiameter = 95;
   }
   
   // overloaded constructor
@@ -47,12 +47,32 @@ public class Ball {
     rgbColor = hue;
   }
   
+  void setLife(boolean b) {
+    DEAD = b;
+  }
+  
   void draw() {
+    if (!DEAD) {
     fill(rgbColor[0], rgbColor[1], rgbColor[2]); // set colors
     ellipse(xcor+vx, ycor+vy, diameter, diameter);
     bounceWall();
     xcor += vx; // next cycle, move in x direction
     ycor += vy; // next cycle, move in y direction
+    
+    if (GROW) {
+      diameter+=1;
+      if (diameter >= 95) {
+      SHRINK = true;
+      GROW = false;
+      }
+    }
+    
+    if (SHRINK) {
+      diameter -= 1;
+      if (diameter <= 0) {
+      DEAD = true;}
+    }
+    }
   }
   
   // readjusts x and y velocity components if hits a wall

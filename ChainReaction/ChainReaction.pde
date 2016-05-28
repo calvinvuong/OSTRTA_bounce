@@ -7,19 +7,31 @@ void setup(){
   background(0); // black
   
   // generate ball objects
-  balls = new Ball[50];
+  balls = new Ball[2];
   for ( int i = 0; i < balls.length; i++ ) {
     balls[i] = new Ball( genXCoordinate(), genYCoordinate(),
                          genVelocity(), genVelocity(),
                          genColor() );
   }
+  balls[0].setLife(true);
 }
+
+
 
 void draw() {
   background(0); 
-  for ( Ball ball : balls ) {
-    ball.draw();
+  for ( int i = 0; i < balls.length; i ++ ) {
+    balls[i].draw();
   }
+}
+
+void mouseClicked() {
+  balls[0].xcor = mouseX;
+  balls[0].ycor = mouseY;
+  balls[0].vx= 0;
+  balls[0].vy= 0;
+   balls[0].setLife(false);  
+   balls[0].GROW = true;
 }
 
 // generates a random X coordinate within the contraints of the world
