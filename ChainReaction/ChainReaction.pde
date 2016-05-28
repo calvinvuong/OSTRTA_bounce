@@ -31,14 +31,15 @@ boolean collide(Ball b1, Ball b2) {
 void draw() {
   background(0); 
   for ( int i = 0; i < balls.length; i ++ ) {
-    balls[i].draw();
+        balls[i].draw(); 
   for (int j = i; j < balls.length; j ++) {
-    if (balls[i].GROW || balls[j].GROW ) {
+    if (balls[i].GROW && !balls[j].GROW && !balls[j].SHRINK) {
       if (collide(balls[i], balls[j])) {
         balls[j].GROW = true;
       }
     }
   }
+
  }
 }
 
