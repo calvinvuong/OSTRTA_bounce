@@ -33,7 +33,7 @@ void draw() {
   for ( int i = 0; i < balls.length; i ++ ) {
        
   for (int j = 0; j < balls.length; j ++) {
-    if ((balls[i].GROW || balls[i].SHRINK) && !balls[j].GROW && !balls[j].SHRINK) {
+    if ((balls[i].GROW || balls[i].SHRINK) && balls[j].BOUNCE) {
       if (collide(balls[i], balls[j])) {
         balls[j].GROW = true;
       }

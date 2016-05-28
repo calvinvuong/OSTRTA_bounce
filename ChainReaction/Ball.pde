@@ -66,6 +66,8 @@ public class Ball {
       if (diameter >= maxDiameter) {
       SHRINK = true;
       GROW = false;
+      DEAD = false;
+      BOUNCE = false;
       }
     }
     
@@ -73,7 +75,12 @@ public class Ball {
       diameter -= 1;
       if (diameter <= 0) {
       DEAD = true;
-      SHRINK = false;}
+      SHRINK = false;
+      BOUNCE = false;
+      GROW = false;
+      xcor = 0;
+      ycor = 0;
+  }
     }
     }
   }
