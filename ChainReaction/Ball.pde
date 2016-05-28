@@ -34,7 +34,7 @@ public class Ball {
     GROW = false;
     SHRINK = false;
     BOUNCE = true;
-    maxDiameter = 95;
+    maxDiameter = 135;
   }
   
   // overloaded constructor
@@ -60,8 +60,10 @@ public class Ball {
     ycor += vy; // next cycle, move in y direction
     
     if (GROW) {
+      vx=0;
+      vy = 0;
       diameter+=1;
-      if (diameter >= 95) {
+      if (diameter >= maxDiameter) {
       SHRINK = true;
       GROW = false;
       }

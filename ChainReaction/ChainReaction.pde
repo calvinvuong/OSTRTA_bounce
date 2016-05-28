@@ -7,7 +7,7 @@ void setup(){
   background(0); // black
   
   // generate ball objects
-  balls = new Ball[2];
+  balls = new Ball[25];
   for ( int i = 0; i < balls.length; i++ ) {
     balls[i] = new Ball( genXCoordinate(), genYCoordinate(),
                          genVelocity(), genVelocity(),
@@ -17,12 +17,27 @@ void setup(){
 }
 
 
+boolean collide(Ball b1, Ball b2) {
+    double dist = Math.sqrt(Math.pow(b1.xcor - b2.xcor, 2) + Math.pow(b1.ycor - b2.ycor, 2));
+    if (dist <= ((b1.diameter/2) + (b2.diameter/2)))
+      return true;
+    return false;
+  }
+  
+
 
 void draw() {
   background(0); 
   for ( int i = 0; i < balls.length; i ++ ) {
     balls[i].draw();
+  for (int j = i; j < balls.length; j ++) {
+    if (balls[i].GROW || balls[j].GROW ) {
+      if (collide(balls[i], balls[j])) {
+        balls[j].GROW = true;
+      }
+    }
   }
+ }
 }
 
 void mouseClicked() {
