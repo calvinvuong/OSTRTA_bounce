@@ -1,13 +1,15 @@
 Ball[] balls;
 int worldX = 700;
 int worldY = 700;
+boolean alreadyClicked; // can only click once
 
 void setup(){
   size(700, 700);
   background(0); // black
+  alreadyClicked = false;
   
   // generate ball objects
-  balls = new Ball[25];
+  balls = new Ball[50];
   for ( int i = 0; i < balls.length; i++ ) {
     balls[i] = new Ball( genXCoordinate(), genYCoordinate(),
                          genVelocity(), genVelocity(),
@@ -41,12 +43,15 @@ void draw() {
 }
 
 void mouseClicked() {
-  balls[0].xcor = mouseX;
-  balls[0].ycor = mouseY;
-  balls[0].vx= 0;
-  balls[0].vy= 0;
-   balls[0].setLife(false);  
-   balls[0].GROW = true;
+  if ( ! alreadyClicked ) {
+    balls[0].xcor = mouseX;
+    balls[0].ycor = mouseY;
+    balls[0].vx= 0;
+    balls[0].vy= 0;
+    balls[0].setLife(false);  
+    balls[0].GROW = true;
+    alreadyClicked = true;
+  }
 }
 
 // generates a random X coordinate within the contraints of the world
