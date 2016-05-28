@@ -72,7 +72,8 @@ public class Ball {
     if (SHRINK) {
       diameter -= 1;
       if (diameter <= 0) {
-      DEAD = true;}
+      DEAD = true;
+      SHRINK = false;}
     }
     }
   }
