@@ -1,3 +1,9 @@
+/*
+Team OSTRTA -- Kathy Lau, Calvin Vuong, Ruochong Wu
+APCS2 PD10
+HW 47 -- All That Bouncin'
+5/30/2016
+*/
 public class Ball {
   // world size specifications, used for wall detection
   int worldX = 700;

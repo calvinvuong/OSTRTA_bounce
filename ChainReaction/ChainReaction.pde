@@ -1,3 +1,11 @@
+/*
+Team OSTRTA -- Kathy Lau, Calvin Vuong, Ruochong Wu
+APCS2 PD10
+HW 47 -- All That Bouncin'
+5/30/2016
+*/
+
+
 Ball[] balls;
 int worldX = 700;
 int worldY = 700;
